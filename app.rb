@@ -8,7 +8,6 @@ set :database, {adapter: 'sqlite3', database: 'microblog.sqlite3'}
 
 get '/' do
 	@posts = BlogPost.all
-	@users = User.all
 	@class = "home"
   	erb :home
 
@@ -27,6 +26,11 @@ get '/login' do
   	erb :login
 end
 
+get '/allprofiles' do
+	@users = User.all
+	erb :allprofiles
+end
+
 get '/profile/:id' do
 	@user = User.find(params[:id])
   	erb :profile
@@ -35,5 +39,3 @@ end
 get '/writeblogpost' do
   	erb :writeblogpost
 end
-
-

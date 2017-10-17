@@ -1,13 +1,12 @@
 <div id="allprofiles.page">
-	<% @user.each do |user| %>
-	<div class="user_profile">
-		<ol>
-			<li><%= user.image %>
-				<%= user.username %>
+	<% @users.each do |user| %>
+	<div class="user_profiles">
+		<ul>
+			<li><a href="/profile/<%= user.id %>"><img src="<%= user.image %>"/></a>
+				<a href="/profile/<%= user.id %>"><%= user.username %></a>
+				<a href="/profile/<%= user.id %>"><%= user.email %></a>
 			</li>
-		</ol>
-
+		</ul>
 	</div>
-
-
+	<% end %>
 </div>
