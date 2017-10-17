@@ -21,3 +21,15 @@ get '/blogpost/:id' do
 	@blogpost = BlogPost.find(params[:id])
 	erb :viewblogpost
 end
+
+get '/signup' do
+  erb :signup
+end
+
+get '/login' do
+  erb :login
+end
+
+get '/writeblogpost' do
+  erb :writeblogpost
+end
