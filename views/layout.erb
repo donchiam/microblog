@@ -6,6 +6,9 @@
        <link rel="stylesheet" type="text/css" href="/css/default.css" />
    </head>
    <body class="<%= @class %>">
+      <% if flash[:message] %>
+        <div id="flash"><%= flash[:message] %><span id="closeFlash">&times;</span></div>
+      <% end %>
    		<div class="navHeader">
    		<h1>Coding Blog</h1>
 		<nav>
@@ -14,6 +17,9 @@
 				<li><a href="/profile">profiles</a></li>
 			</ul>
 		</nav>
+    <% if @current_user %>
+      <a href="/logout">Logout</a>
+    <% end %>
     <div class="buttons"><button class="login">Log In</button>
     <button class="signup">Sign Up</button></div>
   </div>
