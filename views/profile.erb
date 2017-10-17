@@ -1,0 +1,26 @@
+<div id="profile_page">
+	<div id="profile_image">
+		<%= user.image %>
+	</div>
+	<div id="profile_info">
+		<div id="profile_username">
+			<h2>Username</h2>
+			<p><%= user.fullname %></p>
+		</div>
+		<div id="profile_fullname">
+			<h2>Name</h2>
+			<p><%= user.fullname %></p>
+		</div>
+		<div id="profile_email">
+			<h2>Email</h2>
+			<p><%= user.email %></p>
+		</div>
+	</div>
+	<div id="profile_blog_posts">
+		<ul>
+			<% user.blogposts.each do |blogpost| %>
+			<li><%= blogpost.title %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
