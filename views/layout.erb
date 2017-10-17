@@ -2,9 +2,22 @@
 <html>
    <head>
        <title></title>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
        <link rel="stylesheet" type="text/css" href="/css/default.css" />
    </head>
-   <body>
+   <body class="<%= @class %>">
+   		<div class="navHeader">
+   		<h1>Coding Blog</h1>
+		<nav>
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a href="/profile">profiles</a></li>
+			</ul>
+		</nav>
+    <div class="buttons"><button class="login">Log In</button>
+    <button class="signup">Sign Up</button></div>
+  </div>
        <%= yield %>
+     <script src="/js/main.js"></script>
    </body>
 </html>
