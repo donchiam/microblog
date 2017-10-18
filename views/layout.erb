@@ -2,20 +2,25 @@
 <html>
    <head>
        <title></title>
+       <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
        <link rel="stylesheet" type="text/css" href="/css/default.css" />
    </head>
    <body class="<%= @class %>">
-   		<div class="navHeader">
-   		<h1>Coding Blog</h1>
-		<nav>
-			<ul>
-				<li><a href="/">home</a></li>
-				<li><a href="/allprofiles">profiles</a></li>
-			</ul>
-		</nav>
-    <div class="buttons"><button class="login">Log In</button>
-    <button class="signup">Sign Up</button></div>
+      <% if flash[:message] %>
+        <div id="flash"><%= flash[:message] %><span id="closeFlash">&times;</span></div>
+      <% end %>
+      <div class="navHeader">
+      <h1>Coding Blog</h1>
+    <nav>
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/allprofiles">profiles</a></li>
+      </ul>
+    </nav>
+    <% if @current_user %>
+      <a href="/logout">Logout</a>
+    <% end %>
   </div>
        <%= yield %>
      <script src="/js/main.js"></script>

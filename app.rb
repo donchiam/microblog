@@ -40,3 +40,12 @@ end
 get '/writeblogpost' do
   	erb :writeblogpost
 end
+
+post '/writeblogpost' do
+	blogpost = BlogPost.new(
+		title: params[:title],
+		body: params[:body]
+	)
+end
+
+
