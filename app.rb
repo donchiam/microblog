@@ -73,6 +73,7 @@ end
 
 post '/deleteaccount' do  
   current = User.find(session[:user_id])
+  session[:user_id] = nil
   current.destroy
   redirect '/'
 end
