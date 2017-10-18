@@ -5,11 +5,12 @@
 
 nav ul {
 	list-style-type: none;
+	display: inline;
 }
 
 nav ul li {
 	float: left;
-	padding-right: 5px;
+	padding-right: 1%;
 }
  nav ul li a {
  	color: white;
@@ -19,7 +20,6 @@ nav ul li {
  .navHeader {
  	background-color: black;
  	color: white;
- 	display: inline;
  	float: left;
  	width: 100%;
  	padding: 0;
@@ -30,6 +30,7 @@ nav ul li {
 
  .navHeader h1 {
  	float: left;
+ 	font-size: 40px;
  }
 
  .headerImage {
@@ -63,9 +64,15 @@ nav ul li {
  }
 
  .recentPosts {
- 	width: 200px;
+ 	padding-right: 1%;
+ 	width: 250px;
  	height: 200px;
  	display: inline-block;
+ }
+
+ .recentContain {
+ 	width: 100%;
+ 	text-align: center;
  }
 
 #loginModal,

@@ -14,7 +14,7 @@ end
 get '/' do
 	@posts = BlogPost.all
 	@class = "home"
-  	erb :home
+  erb :home
 end
 
 post '/login' do
@@ -48,7 +48,7 @@ post '/signup' do
     image: params[:image]
   )
   if user.save
-    flash[:message] = "Cool, you registered successfully"
+    flash[:message] = "Your account was successfully created, click log in to login"
     redirect '/'
   else
     flash[:message] = "Ooops, your account couldn't be created"
@@ -68,7 +68,53 @@ end
 get '/profile/:id' do
   @class = "profile"
 	@user = User.find(params[:id])
-  	erb :profile
+  erb :profile
+end
+
+post '/deleteaccount' do  
+  current = User.find(session[:user_id])
+  current.destroy
+  redirect '/'
+end
+
+post '/updateImage' do
+  current = User.find(session[:user_id])
+  current.update(
+      image: params[:image]
+    )
+  redirect back
+end
+
+post '/updateUsername' do
+  current = User.find(session[:user_id])
+  current.update(
+      username: params[:username]
+    )
+  redirect back
+end
+
+post '/updateFullname' do
+  current = User.find(session[:user_id])
+  current.update(
+      fullname: params[:fullname]
+    )
+  redirect back
+end
+
+post '/updateEmail' do
+  current = User.find(session[:user_id])
+  current.update(
+      email: params[:email]
+    )
+  redirect back
+end
+
+post '/updatePassword' do
+  current = User.find(session[:user_id])
+  current.update(
+      password: params[:password]
+    )
+  redirect back
 end
 
 get '/writeblogpost' do

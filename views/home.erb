@@ -13,11 +13,13 @@
 
 <img class ="headerImage" src="http://softqubes.3oifjlvvrmv.maxcdn-edge.com/wp-content/uploads/2016/05/web-development.jpg" />
 
+<div class="recentContain">
 	<% @posts.each do |post| %>
 	<div class="recentPosts">
-		<a href="/blogpost/<%= post.id %>"><%= post.title %></a>
+		<p><a href="/blogpost/<%= post.id %>"><%= post.title %></a></p>
 		<%= post.body.slice(0, 100) %></div>
 	<% end %>
+</div>
 
 <footer>
 	<i class="fa fa-facebook-official" aria-hidden="true"></i>
