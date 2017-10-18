@@ -4,6 +4,15 @@
 	</div>
 	<div id="profile_info">
 		<div id="profile_username">
+			<h2>Username</h2>
+			<p><%= @user.fullname %></p>
+		</div>
+		<div id="profile_fullname">
+			<h2>Name</h2>
+			<p><%= @user.fullname %></p>
+		</div>
+		<div id="profile_email">
+			<h2>Email</h2>
 			<h3>Username</h3>
 			<p><%= @user.username %></p>
 		</div>
@@ -16,7 +25,16 @@
 			<p><%= @user.email %></p>
 		</div>
 	</div>
+	<div id="profile_blogposts">		
+		<ul>
+			<% user.blogposts.each do |blogpost| %>
+			<li><%= blogpost.title %></li>
+			<% end %>	
+		</ul>
+		
+	</div>
 
+</div>
 	<div id="profile_blogs">
 		<h3>My Blog Posts</h3>
 		<ul>
