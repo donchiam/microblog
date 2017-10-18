@@ -1,12 +1,34 @@
 <div id="allprofiles.page">
-	<% @users.each do |user| %>
-	<div class="user_profiles">
-		<ul>
-			<li><a href="/profile/<%= user.id %>"><img src="<%= user.image %>"/></a>
-				<a href="/profile/<%= user.id %>"><%= user.username %></a>
-				<a href="/profile/<%= user.id %>"><%= user.email %></a>
-			</li>
-		</ul>
+	
+	<div id="profiles_list">
+		<table>
+			<tr>
+				<th></th>
+				<th>Username</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Blog Posts</th>
+			</tr>
+			<% @users.each do |user| %>
+			<tr>
+				<td>
+					<a href="/profile/<%= user.id %>"><img src="<%= user.image %>"/></a>
+				</td>
+				<td>
+					<a href="/profile/<%= user.id %>"><%= user.username %></a>
+				</td>
+				<td>
+					<a href="/profile/<%= user.id %>"><%= user.fullname %></a>
+				</td>
+				<td>
+					<a href="/profile/<%= user.id %>"><%= user.email %></a>
+				</td>		
+				<td>
+					<a href="/profile/<%= user.id %>"><%= user.blog_posts.count %></a>
+				</td>
+			</tr>
+			<% end %>
+		</table>
 	</div>
-	<% end %>
+	
 </div>

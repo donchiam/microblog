@@ -29,6 +29,7 @@ end
 get '/allprofiles' do
 	@users = User.all
 	erb :allprofiles
+
 end
 
 get '/profile/:id' do
