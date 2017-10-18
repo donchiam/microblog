@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :blogposts
-	has_many :comments, through: :blogposts
+	has_many :blog_posts
+	has_many :comments, through: :blog_posts
 end
 
 class BlogPost < ActiveRecord::Base
@@ -11,5 +11,5 @@ end
 
 class Comment < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :blogpost
+	belongs_to :blog_post
 end

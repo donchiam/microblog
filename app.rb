@@ -17,7 +17,7 @@ get '/' do
 	erb :home
 end
 
-post '/' do
+post '/login' do
 	user = User.find_by(username: params[:username])
 	if user && user.password == params[:password]
 		session[:user_id] = user.id
@@ -35,12 +35,30 @@ get '/profile' do
 end
 
 get '/blogpost/:id' do
+  @class = "blogpost"
 	@blogpost = BlogPost.find(params[:id])
 	erb :viewblogpost
 end
 
 get '/signup' do
   erb :signup
+end
+
+post '/signup' do
+  user = User.new(
+    fullname: params[:fullname],
+    username: params[:username],
+    email: params[:email],
+    password: params[:password],
+    image: params[:image]
+  )
+  if user.save
+    flash[:message] = "Cool, you registered successfully"
+    redirect '/'
+  else
+    flash[:message] = "Ooops, your account couldn't be created"
+    redirect '/'
+  end
 end
 
 get '/login' do
@@ -53,7 +71,7 @@ end
 
 get '/logout' do
   session[:user_id] = nil
-  flash[:message] = "You're logged out. Cool!"
+  flash[:message] = "You're logged out"
   redirect '/'
 end
 
