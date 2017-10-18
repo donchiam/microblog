@@ -118,8 +118,20 @@ nav ul li {
 	margin: 2%;
 }
 
-#writeblog [type=text] {
-	height: 400px;
+#blog_title {
+	height: 50px;
+	width: 400px;
+	font-size: 16px;
+}
+
+#blog_body {
+	height: 200px;
+	width: 400px;
+	font-size: 16px;
+}
+
+#comment_body {
+	height: 75px;
 	width: 400px;
 	font-size: 16px;
 }

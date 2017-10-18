@@ -12,31 +12,25 @@ before do
 end
 
 get '/' do
-	@posts = BlogPost.all
-	@class = "home"
-  	erb :home
+  @posts = BlogPost.all
+  @class = "home"
+    erb :home
 end
 
 post '/login' do
-	user = User.find_by(username: params[:username])
-	if user && user.password == params[:password]
-		session[:user_id] = user.id
-		flash[:message] = "You're now logged in!"
-		redirect '/'
-	else
-		flash[:message] = "Email and password did not match"
-		redirect '/'
-	end
-end
-
-get '/blogpost/:id' do
-  @class = "blogpost"
-	@blogpost = BlogPost.find(params[:id])
-	erb :viewblogpost
+  user = User.find_by(username: params[:username])
+  if user && user.password == params[:password]
+    session[:user_id] = user.id
+    flash[:message] = "You're now logged in!"
+    redirect '/'
+  else
+    flash[:message] = "Email and password did not match"
+    redirect '/'
+  end
 end
 
 get '/signup' do
-  	erb :signup
+    erb :signup
 end
 
 post '/signup' do
@@ -57,23 +51,77 @@ post '/signup' do
 end
 
 get '/login' do
-  	erb :login
+    erb :login
+end
+
+get '/blogpost/:id' do
+  @class = "blogpost"
+  @blogpost = BlogPost.find(params[:id])
+  erb :viewblogpost
 end
 
 get '/allprofiles' do
-	@users = User.all
-	erb :allprofiles
+  @users = User.all
+  erb :allprofiles
 end
 
 get '/profile/:id' do
   @class = "profile"
-	@user = User.find(params[:id])
-  	erb :profile
+  @user = User.find(params[:id])
+    erb :profile
 end
 
+
+
 get '/writeblogpost' do
-  erb :writeblogpost
+  @blogpost = BlogPost.new
+    erb :writeblogpost
 end
+
+
+post '/blogpost' do
+  @blogpost = BlogPost.new(
+    title: params[:title],
+    body: params[:body],
+    user_id: @current_user.id
+    )
+  if @blogpost.save
+    redirect "/blogpost/#{@blogpost.id}"
+  else
+    erb :writeblogpost
+  end
+end
+
+get '/blogpost/:id' do
+  @blogpost = BlogPost.find(params[:id])
+  erb :viewblogpost
+end
+
+get '/viewblogpost' do
+  @comment = Comment.new
+  erb :viewblogpost
+end
+
+post '/viewblogpost' do
+  @comment = Comment.new(
+    comment: params[:comment],
+    user_id: @current_user.id
+    )
+  if @comment.save
+    redirect "/blogpost/#{@blogpost.id - 1}"
+  else
+    erb :viewblogpost
+  end
+end
+
+
+get '/blogpost/:id' do
+  @blogpost = BlogPost.find(params[:id])
+  erb :viewblogpost
+end
+
+
+
 
 get '/logout' do
   session[:user_id] = nil
@@ -81,12 +129,11 @@ get '/logout' do
   redirect '/'
 end
 
-post '/writeblogpost' do
-	blogpost = BlogPost.new(
-		title: params[:title],
-		body: params[:body]
-	)
-end
+
+
+
+
+
 
 
 def current_user

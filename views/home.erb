@@ -16,7 +16,7 @@
 	<% @posts.each do |post| %>
 	<div class="recentPosts">
 		<a href="/blogpost/<%= post.id %>"><%= post.title %></a>
-		<%= post.body.slice(0, 100) %></div>
+		<%= post.body%></div>
 	<% end %>
 
 <footer>
