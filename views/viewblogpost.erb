@@ -1,7 +1,7 @@
 <h1><%= @blogpost.title %></h1>
 <p><%= @blogpost.body %></p>
 <p>Created by <%= @blogpost.user_id %></p>
-<p>Created at <%= @blogpost.created_at %></p>
+<p>Created at <%= @blogpost.created_at.to_date %></p>
 
 <h4>Write a comment:</h4>
 <form id="writecomment" method="POST" action="/blogpost">
@@ -18,3 +18,5 @@
 <div id="user_comments">
 	<p><%= @comment.user_id %></p>
 </div>
+
+
