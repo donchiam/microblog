@@ -10,15 +10,14 @@
       <% if flash[:message] %>
         <div id="flash"><%= flash[:message] %><span id="closeFlash">&times;</span></div>
       <% end %>
-   		<div class="navHeader">
-   		<h1>Coding Blog</h1>
-		<nav>
-			<ul>
-				<li><a href="/">home</a></li>
-				<li><a href="/allprofiles">profiles</a></li>
-			</ul>
-		</nav>
-
+      <div class="navHeader">
+      <h1>Coding Blog</h1>
+    <nav>
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/allprofiles">profiles</a></li>
+      </ul>
+    </nav>
     <% if @current_user %>
       <a href="/logout">Logout</a>
       <a href="/profile/<%= current_user.id %>">My Account</a>

@@ -1,9 +1,11 @@
 <div id="writeblog_page">
 <h1>Compose new blog post</h1>
-<form id="writeblog" method="POST" action="/home">
+<form id="writeblog" method="POST" action="/blogpost">
+	<div id="blog_header">
+		<input id="blog_title" type="text" name="title"placeholder="Write your title here">
 	<div id="blog_box">
 		<div id="blog_fill">
-			<input id="blog_post" type="text" name="blog_post"placeholder="Write here">
+			<input id="blog_body" type="text" name="body"placeholder="Write your blog here">
 		</div>
 		<div id="post_box">
 			<input id="post_button" type="submit" value="Submit your posting"/>

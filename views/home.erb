@@ -16,8 +16,13 @@
 <div class="recentContain">
 	<% @posts.each do |post| %>
 	<div class="recentPosts">
-		<p><a href="/blogpost/<%= post.id %>"><%= post.title %></a></p>
-		<%= post.body.slice(0, 100) %></div>
+
+<!-- 		<p><a href="/blogpost/<%= post.id %>"><%= post.title %></a></p>
+		<%= post.body.slice() %></div> -->
+
+		<a href="/blogpost/<%= post.id %>"><%= post.title %></a>
+		<%= post.body %></div>
+
 	<% end %>
 </div>
 

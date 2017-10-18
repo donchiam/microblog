@@ -1,3 +1,20 @@
 <h1><%= @blogpost.title %></h1>
 <p><%= @blogpost.body %></p>
-<p><%= @blogpost.created_at.to_date %></p>
+<p>Created by <%= @blogpost.user_id %></p>
+<p>Created at <%= @blogpost.created_at.to_date %></p>
+
+<h4>Write a comment:</h4>
+<form id="writecomment" method="POST" action="/blogpost">
+	<div id="comment_box">
+		<div id="comment_fill">
+			<input id="comment_body" type="text" name="comment"placeholder="Write your comment here">
+		</div>
+		<div id="reply_box">
+			<input id="comment_button" type="submit" value="Submit your comment"/>
+		</div>
+	</div>
+</form>
+
+<div id="user_comments">
+	<p><%= @comment.user_id %></p>
+</div>
