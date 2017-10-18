@@ -15,6 +15,7 @@ get '/' do
 	@posts = BlogPost.all
 	@class = "home"
   	erb :home
+end
 
 post '/login' do
 	user = User.find_by(username: params[:username])
@@ -62,7 +63,6 @@ end
 get '/allprofiles' do
 	@users = User.all
 	erb :allprofiles
-
 end
 
 get '/profile/:id' do
