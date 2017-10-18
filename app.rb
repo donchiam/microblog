@@ -14,8 +14,7 @@ end
 get '/' do
 	@posts = BlogPost.all
 	@class = "home"
-	erb :home
-end
+  	erb :home
 
 post '/login' do
 	user = User.find_by(username: params[:username])
@@ -29,11 +28,6 @@ post '/login' do
 	end
 end
 
-get '/profile' do
-	@class = "profile"
-	erb :profile
-end
-
 get '/blogpost/:id' do
   @class = "blogpost"
 	@blogpost = BlogPost.find(params[:id])
@@ -41,7 +35,7 @@ get '/blogpost/:id' do
 end
 
 get '/signup' do
-  erb :signup
+  	erb :signup
 end
 
 post '/signup' do
@@ -62,7 +56,19 @@ post '/signup' do
 end
 
 get '/login' do
-  erb :login
+  	erb :login
+end
+
+get '/allprofiles' do
+	@users = User.all
+	erb :allprofiles
+
+end
+
+get '/profile/:id' do
+  @class = "profile"
+	@user = User.find(params[:id])
+  	erb :profile
 end
 
 get '/writeblogpost' do

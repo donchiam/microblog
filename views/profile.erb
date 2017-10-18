@@ -13,10 +13,18 @@
 		</div>
 		<div id="profile_email">
 			<h2>Email</h2>
+			<h3>Username</h3>
+			<p><%= @user.username %></p>
+		</div>
+		<div id="profile_fullname">
+			<h3>Name</h3>
+			<p><%= @user.fullname %></p>
+		</div>
+		<div id="profile_email">
+			<h3>Email</h3>
 			<p><%= @user.email %></p>
 		</div>
 	</div>
-
 	<div id="profile_blogposts">		
 		<ul>
 			<% user.blogposts.each do |blogpost| %>
@@ -24,6 +32,17 @@
 			<% end %>	
 		</ul>
 		
+	</div>
+
+</div>
+	<div id="profile_blogs">
+		<h3>My Blog Posts</h3>
+		<ul>
+			<% @user.blog_posts.each do |blog_post| %>
+				<li><%= blog_post.title %></li>
+			<% end %>	
+		</ul>
+
 	</div>
 
 </div>
