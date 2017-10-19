@@ -14,11 +14,27 @@
 <img class ="headerImage" src="http://softqubes.3oifjlvvrmv.maxcdn-edge.com/wp-content/uploads/2016/05/web-development.jpg" />
 
 <div class="recentContain">
-	<% @posts.each do |post| %>
-	<div class="recentPosts">
-		<a href="/blogpost/<%= post.id %>"><%= post.title %></a>
-		<%= post.body %></div>
+
+	<div class="info">
+		<h4>Coding Blog is a space that coders at any skill level can come to share thoughts on anything code related. Here are some topics our users typically write about:</h4><ul>
+			<li>Tutorials</li>
+			<li>Challenges</li>
+			<li>Successes</li>
+			<li>Work Related Struggles</li>
+			<li>Side Projects</li>
+			<li>Portfolio Advice</li>
+			<li class="more"> and much more...</li>
+		</ul>
+		<p><em>“Remember that code is really the language in which we ultimately express the requirements. We may create languages that are closer to the requirements. We may create tools that help us parse and assemble those requirements into formal structures. But we will never eliminate necessary precision—so there will always be code.”</em> ― Robert C. Martin</p>
+</div>
+
+	<div class="recent">
+		<h1>Recent Posts</h1>
+	<% @recent.limit(10).each do |post| %>
+		<div class="recentPosts">
+			<p><a href="/blogpost/<%= post.id %>"><%= post.title %></a></p></div>
 	<% end %>
+	</div>
 </div>
 
 <footer>

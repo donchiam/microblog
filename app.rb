@@ -12,8 +12,8 @@ before do
 end
 
 get '/' do
-	@posts = BlogPost.all
-	@class = "home"
+  @class = "home"
+  @recent = BlogPost.order(:created_at)
   erb :home
 end
 
@@ -155,6 +155,11 @@ post '/comment' do
   end
 end
 
+get '/blogpost/:id' do
+  @blogpost = BlogPost.find(params[:id])
+  erb :viewblogpost
+end
+
 get '/logout' do
   session[:user_id] = nil
   flash[:message] = "You're logged out"
@@ -164,4 +169,3 @@ end
 def current_user
   @current_user = User.find(session[:user_id]) if session[:user_id]
 end
-

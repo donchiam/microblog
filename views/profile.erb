@@ -1,8 +1,12 @@
-<div id="profile_page">
-    <div id="profile_image">
-        <img src="<%= @user.image %>"/>
-    </div>
+<div id="profile">
+<div id="profile_image">
+    <img src="<%= @user.image %>"/>
+    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+    <i class="fa fa-instagram" aria-hidden="true"></i>
+    <i class="fa fa-twitter" aria-hidden="true"></i>
+</div>
 
+<div id="profile_page">
     <% if session[:user_id] %>
         <% if @user.id == session[:user_id] %>
             <form method="post" action="/updateImage">
@@ -13,9 +17,8 @@
     <% end %>
 
     <div id="profile_info">
-        <div id="profile_username">
-            <h3>Username</h3>
-            <p><%= @user.username %></p>
+        <div id="profile_username" class="usersInfo">
+            <h2>Username:</h2><p><%= @user.username %></p>           
         </div>
 
     <% if session[:user_id] %>
@@ -27,9 +30,8 @@
         <% end %>
     <% end %>
 
-        <div id="profile_fullname">
-            <h3>Name</h3>
-            <p><%= @user.fullname %></p>
+        <div id="profile_fullname" class="usersInfo">
+            <h2>Name:</h2><p><%= @user.fullname %></p>
         </div>
 
     <% if session[:user_id] %>
@@ -41,9 +43,8 @@
         <% end %>
     <% end %>
 
-        <div id="profile_email">
-            <h3>Email</h3>
-            <p><%= @user.email %></p>
+        <div id="profile_email" class="usersInfo">
+            <h2>Email:</h2><p><%= @user.email %></p>
         </div>
     </div>
 
@@ -56,11 +57,13 @@
         <% end %>
     <% end %>
 
-    <div id="profile_blogs">
-        <h3>My Blog Posts</h3>
+</div> <!-- end of profile_page -->
+<div id="blogs">
+    <div id="profile_blogs" class="usersInfo">
+        <h2>My Blog Posts:</h2>
         <ul>
             <% @user.blog_posts.each do |blog_post| %>
-                <li><%= blog_post.title %></li>
+                <li><a href="/blogpost/<%= blog_post.id %>"><%= blog_post.title %></a></li>
             <% end %>    
         </ul>
     </div>
@@ -84,4 +87,5 @@
             </form>
         <% end %>
     <% end %>
+</div>
 </div>

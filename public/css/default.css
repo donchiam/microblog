@@ -1,6 +1,20 @@
-.home,
-.blogpost {
+* {
 	font-family: 'Source Sans Pro', sans-serif;
+}
+
+#flash {
+	cursor: pointer;
+	background-color: #fae596;
+ 	font-size: 20px;
+ 	text-align: center;
+}
+
+#closeFlash {
+	padding-left: 1%;
+}
+
+nav {
+	padding-top: 3%;
 }
 
 nav ul {
@@ -17,20 +31,27 @@ nav ul li {
  	text-decoration: none;
  }
 
+.user {
+	color: #fae596;
+}
+
+.nav {
+	color: white;
+}
+
  .navHeader {
  	background-color: black;
- 	color: white;
  	float: left;
  	width: 100%;
  	padding: 0;
  	margin: 0;
-/* 	position: absolute;
- 	top: 0;*/
  }
 
  .navHeader h1 {
  	float: left;
  	font-size: 40px;
+ 	padding-left: 1%;
+ 	padding-right: 2%;
  }
 
  .headerImage {
@@ -48,31 +69,93 @@ nav ul li {
  }
 
 .buttons {
+	padding: 1%;
 	position: absolute;
  	right: 0;
  }
 
  button {
+ 	background-color: white;
+ 	border: none;
+ 	padding: 12px;
  	cursor: pointer;
  }
+
+ .buttons button:hover {
+ 	background-color: #fae596;
+ 	font-size: 20px;
+ }
+
+.home .recent h1 {
+	text-align: center;
+}
+
+.home .recent h1 {
+	background-color: #fae596;
+	margin-left: 2%;
+}
+
+.home .recent a:hover {
+	font-size: 30px;
+	background-color: #fae596; 
+}
 
  .home footer {
  	position: fixed;
  	bottom: 0;
+ 	height: 50px;
  	width: 100%;
- 	background-color: blue;
+ 	background-color: black;
+ 	color: white;
+ 	text-align: center;
+ 	font-size: 30px;
+ }
+
+ .home footer i {
+ 	padding-right: 1%;
  }
 
  .recentPosts {
- 	padding-right: 1%;
- 	width: 250px;
- 	height: 200px;
- 	display: inline-block;
+ 	text-align: center;
+ }
+
+ .recent {
+ 	width: 48%;
+ 	padding-right: 3%;
+ 	float: left;
+ }
+
+ .recentPosts a {
+ 	font-size: 20px;
+ 	color: black;
  }
 
  .recentContain {
  	width: 100%;
- 	text-align: center;
+ 	height: 600px;
+ }
+
+.more {
+	font-style: italic;
+	padding-left: 1%;
+	padding-top: 1%;
+	list-style-type: none;
+}
+
+ .info {
+ 	width: 48%;
+ 	float: left;
+ 	border-right: 2px solid black;
+ 	font-size: 18px;
+ }
+
+ .info p,
+ .info h4 {
+ 	padding: 5%;
+ }
+
+ .info ul {
+ 	padding-left: 10%;
  }
 
 #loginModal,
@@ -220,41 +303,64 @@ a {
 	text-decoration: none;
 }
 
-
-#profile_page {
-	width: 100%;
-	height: auto;
-	text-align: center;
+#profile {
+	width: 700px;
+	height: 500px;
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	transform: translateX(-50%) translateY(-50%);
+  	background-color: white;
+/*  	position: relative;*/
 }
 
-#profile_page h3 {
-	text-decoration: underline;
+.profile {
+	background-color: #fae596;
 }
 
 #profile_image {
+	width: 30%;
 	float: left;
-	width: 25%;
-	margin-top: 2%;
+	text-align: center;
 }
 
-#profile_info {
-	float: left;
-	width: 25%;
-	border-right: 2px solid black;
+#profile_image i {
+	font-size: 30px;
+	padding-right: 15%;
+	text-align: center;
 }
 
+#blogs {
+	width: 70%;
+	float: right;
+	padding-top: 1%;
+}
+
+#profile_page {
+	width: 100%;
+	text-align: center;
+/*	position: absolute;
+	bottom: 0;*/
+}
 
 #profile_image img {
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 300px;
 }
 
-#profile_blogs {
-	float: left;
-	width: 48%;
-	height: auto;
-	text-align: left;
-	margin-left: 15px;
-	padding-left: 5px;
-	
+.usersInfo h2,
+.usersInfo p {
+	display: inline;
+}
+
+.usersInfo h2 {
+	padding-right: 1%;
+}
+
+.usersInfo {
+	padding-bottom: 3%;
+}
+
+.usersInfo ul {
+	list-style-type: none;
 }
