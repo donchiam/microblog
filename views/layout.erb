@@ -11,18 +11,18 @@
         <div id="flash"><%= flash[:message] %><span id="closeFlash">&times;</span></div>
       <% end %>
       <div class="navHeader">
-      <h1>Coding Blog</h1>
+      <h1 class="nav" >Coding Blog</h1>
     <nav>
       <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="/allprofiles">profiles</a></li>
+        <li><a class="nav" href="/">home</a></li>
+        <li><a class="nav" href="/allprofiles">profiles</a></li>
+        <% if @current_user %>
+          <li><em><a class="user" href="/profile/<%= current_user.id %>">My Account</a></em></li>
+          <li><em><a class="user" href="/writeblogpost">New Post</a></em></li>
+          <li><em><a class="user" href="/logout">Logout</a></em></li>
+        <% end %>
       </ul>
     </nav>
-    <% if @current_user %>
-      <a href="/logout">Logout</a>
-      <a href="/profile/<%= current_user.id %>">My Account</a>
-    <% end %>
-
   </div> <!-- end of navHeader -->
        <%= yield %>
      <script src="/js/main.js"></script>

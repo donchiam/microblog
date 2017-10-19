@@ -12,9 +12,9 @@ before do
 end
 
 get '/' do
-  @posts = BlogPost.all
   @class = "home"
-    erb :home
+  @recent = BlogPost.order(:created_at)
+  erb :home
 end
 
 post '/login' do
