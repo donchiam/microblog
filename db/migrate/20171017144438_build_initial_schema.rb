@@ -17,7 +17,7 @@ class BuildInitialSchema < ActiveRecord::Migration[5.1]
   	end
 
   	create_table :comments do |t|
-  		t.references :blogpost, foreign_key: {to_table: :blogposts}, index: true
+  		t.references :blog_post, foreign_key: {to_table: :blog_posts}, index: true
   		t.references :user, foreign_key: {to_table: :users}, index: true
   		t.text :comment
   		t.datetime :created_at

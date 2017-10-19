@@ -136,31 +136,23 @@ post '/blogpost' do
   end
 end
 
-get '/blogpost/:id' do
-  @blogpost = BlogPost.find(params[:id])
-  erb :viewblogpost
-end
-
-get '/viewblogpost' do
+get '/comment' do
   @comment = Comment.new
-  erb :viewblogpost
+    erb :viewblogpost
 end
 
-post '/viewblogpost' do
+post '/comment' do
   @comment = Comment.new(
     comment: params[:comment],
+    blog_post_id: params[:blog_post_id],
     user_id: @current_user.id
     )
   if @comment.save
-    redirect "/blogpost/#{@blogpost.id - 1}"
+    redirect back
+    #redirect "/blogpost/#{blogpost.comment.id}"
   else
     erb :viewblogpost
   end
-end
-
-get '/blogpost/:id' do
-  @blogpost = BlogPost.find(params[:id])
-  erb :viewblogpost
 end
 
 get '/logout' do
