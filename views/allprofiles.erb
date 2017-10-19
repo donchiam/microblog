@@ -1,4 +1,4 @@
-<div id="allprofiles.page">
+<div id="allprofiles_page">
 	
 	<div id="profiles_list">
 		<table>
@@ -8,6 +8,7 @@
 				<th>Name</th>
 				<th>Email</th>
 				<th>Blog Posts</th>
+				<th>Comments</th>
 			</tr>
 			<% @users.each do |user| %>
 			<tr>
@@ -21,10 +22,13 @@
 					<a href="/profile/<%= user.id %>"><%= user.fullname %></a>
 				</td>
 				<td>
-					<a href="/profile/<%= user.id %>"><%= user.email %></a>
+					<a href="mailto:<%= user.email %>"><%= user.email %></a>
 				</td>		
 				<td>
 					<a href="/profile/<%= user.id %>"><%= user.blog_posts.count %></a>
+				</td>
+				<td>
+					<a href="/profile/<%= user.id %>"><%= user.comments.count %></a>
 				</td>
 			</tr>
 			<% end %>

@@ -1,16 +1,45 @@
-<h1><%= @blogpost.title %></h1>
-<p><%= @blogpost.body %></p>
-<p>Created by <%= @blogpost.user_id %></p>
-<p>Created at <%= @blogpost.created_at.to_date %></p>
-
-<h4>Write a comment:</h4>
-<form id="writecomment" method="POST" action="/blogpost">
-	<div id="comment_box">
-		<div id="comment_fill">
-			<input id="comment_body" type="text" name="comment"placeholder="Write your comment here">
-		</div>
-		<div id="reply_box">
-			<input id="comment_button" type="submit" value="Submit your comment"/>
-		</div>
+<div id="viewpost_page">
+<div id="post_info">
+	<h1><%= @blogpost.title %></h1>
+	<p id="post_body"><%= @blogpost.body %></p>
+	<div id="post_origin">
+	<p>Created by <a href="/profile/<%= @blogpost.user.id %>"><%= @blogpost.user.username %></a></p>
+	<p>Posted on <%= @blogpost.created_at.to_date %></p>
 	</div>
-</form>
+</div>
+
+<div id="comment_info">
+	<h3>Submit a comment:</h3>
+		<form id="writecomment" method="POST" action="/comment">
+			<input type="hidden" name="blog_post_id" value="<%= @blogpost.id %>" />
+			<div id="comment_box">
+				<textarea id="comment_body" name="comment" form="writecomment" maxlength="150" placeholder="Write your comment here"></textarea>
+			</div>
+			<div id="reply_box">
+				<input id="comment_button" type="submit" value="Submit your comment"/>
+			</div>
+		</form>
+</div>
+
+<div id="user_comments">
+	<h3>Comments (<%= @blogpost.comments.count %>)</h3>
+	<table>
+		<tr>
+			<th>Comment</th>
+			<th>Posted by</th>
+			<th>Posted Date</th>	
+		<tr>
+		<% @blogpost.comments.each do |comment| %>		
+		<tr>
+			<td align="left"><%= comment.comment %></td>
+			<td><a href="/profile/<%= comment.user.id %>"><%= comment.user.username %></a></td>
+			<td width = "20%"><%= comment.created_at.to_date %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+</div>
+
+
+
+>>>>>>> 7aa748e85d7b6f08cde6b71db8d313b470c47f2d

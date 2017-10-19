@@ -173,7 +173,7 @@ nav ul li {
 	display: none;
 }
 
-#signup_page, #login_page, #writeblog_page, #profile_page {
+#signup_page, #login_page, #writeblog_page, #profile_page, #allprofiles_page {
 	margin: 0 auto;
 	text-align: center;
 }
@@ -218,7 +218,29 @@ nav ul li {
 	height: 200px;
 	width: 400px;
 	font-size: 16px;
+	line-height: 20px;
+
 }
+
+#post_info {
+	padding-top: 10%;
+	padding-left: 10%;
+	width: 60%;
+}
+
+#post_body {
+	font-size: 18px;
+}
+
+#post_origin {
+	font-size: 14px;
+}
+#comment_info {
+	margin-top: 5%;
+	padding-left: 10%;
+	width: 60%;
+}
+
 
 #comment_body {
 	height: 75px;
@@ -226,17 +248,44 @@ nav ul li {
 	font-size: 16px;
 }
 
-#signup_button, #login_button, #post_button {
+#comment_box {
+	margin-bottom: 2%;
+}
+
+#user_comments {
+	width: 60%;
+	padding-top: 5%;
+	padding-left: 15%;
+
+}
+
+#user_comments th {
+	padding: 10px 10px 10px 10px;
+}
+
+#user_comments td {
+	text-align: left;
+}
+
+
+#signup_button, #login_button, #post_button, #comment_button {
 	background-color: lightblue;
 	width: 200px;
 	height: 30px;
 	font-size: 18px;
 }
 
-#profiles_list table th, td {
-	text-align: center;
-	border: 1px solid white;
 
+#profiles_list {
+	width: 80%;
+	position: relative;
+	margin: 0 auto;
+	padding-left: 15%;
+}
+
+#profiles_list table th, td {
+	
+	text-align: center;
 }
 
 #profiles_list th, td {
@@ -314,4 +363,3 @@ a {
 
 .usersInfo ul {
 	list-style-type: none;
-}
