@@ -144,8 +144,8 @@ end
 post '/comment' do
   @comment = Comment.new(
     comment: params[:comment],
-    blog_post_id: params[:blog_post_id],
-    user_id: @current_user.id
+    user_id: @current_user.id,
+    blog_post_id: params[:blog_post_id]
     )
   if @comment.save
     redirect back
@@ -153,6 +153,11 @@ post '/comment' do
   else
     erb :viewblogpost
   end
+end
+
+get '/allblogposts' do
+  @blogposts = BlogPost.all.order(id: :desc)
+  erb :allblogposts
 end
 
 get '/blogpost/:id' do

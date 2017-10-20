@@ -100,6 +100,10 @@ nav ul li {
 	background-color: #fae596; 
 }
 
+.home .recent h3 {
+	text-align: right;
+}
+
  .home footer {
  	position: fixed;
  	bottom: 0;
@@ -173,9 +177,23 @@ nav ul li {
 	display: none;
 }
 
+span {
+	float: right;
+	font-size: 32px;
+	padding-right: 10px;
+}
+
 #signup_page, #login_page, #writeblog_page, #profile_page, #allprofiles_page {
 	margin: 0 auto;
 	text-align: center;
+}
+
+#login_page {
+	margin-top: 15%;
+}
+
+#enter_username, #enter_password {
+	margin-bottom: 2%;
 }
 
 #signup div {
@@ -183,6 +201,12 @@ nav ul li {
 }
 
 #signup [type=text] {
+	height: 30px;
+	width: 200px;
+	font-size: 16px;
+}
+
+#signup [type=password] {
 	height: 30px;
 	width: 200px;
 	font-size: 16px;
@@ -203,6 +227,33 @@ nav ul li {
 	font-size: 16px;
 }
 
+#login [type=password] {
+	height: 30px;
+	width: 200px;
+	font-size: 16px;
+}
+
+#writeblog_page {
+	font: left;
+	width: 100%;
+	height: auto;
+	min-height: 650px;
+	background: url("http://softqubes.3oifjlvvrmv.maxcdn-edge.com/wp-content/uploads/2016/05/web-development.jpg");
+	background-size: 55%;
+	background-position: center;
+}
+
+#writeblog_box {
+	float: left;
+	background-color: rgba(255, 255, 255, 1);
+	width: 50%;
+	height: auto;
+	min-height: 400px;
+	margin-left: 24%;
+	padding-left: 2%;
+	padding-bottom: 2%;
+	margin-top: 3%;
+}
 
 #writeblog div {
 	margin: 2%;
@@ -222,10 +273,35 @@ nav ul li {
 
 }
 
+#viewpost_page {
+	width: 100%;
+	height: auto;
+	background: url("http://softqubes.3oifjlvvrmv.maxcdn-edge.com/wp-content/uploads/2016/05/web-development.jpg");
+	background-size: 55%;
+	background-position: center;
+}
+
+#current_post {
+	background-color: rgba(255, 255, 255, 1);
+	width: 80%;
+	min-height: 545px;
+	height: auto;
+	margin-left: 7%;
+	padding-left: 5%;
+}
+
 #post_info {
-	padding-top: 10%;
-	padding-left: 10%;
+	padding-left: 5%;
 	width: 60%;
+}
+
+#post_info h1 {
+	font-style: italic;
+}
+
+#post_info h3 {
+	float: left;
+	margin-top: 15%;
 }
 
 #post_body {
@@ -233,10 +309,12 @@ nav ul li {
 }
 
 #post_origin {
+	float: right;
 	font-size: 14px;
+	margin-right: 0%;
 }
 #comment_info {
-	margin-top: 5%;
+	margin-top: 20%;
 	padding-left: 10%;
 	width: 60%;
 }
@@ -253,38 +331,52 @@ nav ul li {
 }
 
 #user_comments {
-	width: 60%;
+	width: 85%;
+	height: auto;
 	padding-top: 5%;
-	padding-left: 15%;
-
+	margin-left: 10%;
+	padding-left: 5%;
 }
 
 #user_comments th {
 	padding: 10px 10px 10px 10px;
 }
 
-#user_comments td {
+/*#user_comments td {
 	text-align: left;
-}
+}*/
 
 
 #signup_button, #login_button, #post_button, #comment_button {
-	background-color: lightblue;
+	background-color: rgba(26, 81, 168, 1);
 	width: 200px;
 	height: 30px;
 	font-size: 18px;
+	color: white;
+	border-radius: 25px;
+	cursor: pointer;
 }
 
+#allprofiles_page {
+	width: 100%;
+	min-height: 650px;
+	height: auto;
+	background: url("http://softqubes.3oifjlvvrmv.maxcdn-edge.com/wp-content/uploads/2016/05/web-development.jpg");
+	background-size: 55%;
+	background-position: center;
+}
 
 #profiles_list {
-	width: 80%;
-	position: relative;
-	margin: 0 auto;
-	padding-left: 15%;
+	float: left;
+	background-color: rgba(255, 255, 255, 1);
+	width: 70%;
+	min-height: 545px;
+	height: auto;
+	margin-left: 10%;
+	padding-left: 10%;
 }
 
-#profiles_list table th, td {
-	
+#profiles_list table th {	
 	text-align: center;
 }
 
@@ -297,6 +389,32 @@ nav ul li {
 	width: 50px;
 	height: 50px;
 	
+}
+
+#allblogposts_page {
+	width: 100%;
+	height: auto;
+	background: url("http://softqubes.3oifjlvvrmv.maxcdn-edge.com/wp-content/uploads/2016/05/web-development.jpg");
+	background-size: 55%;
+	background-position: center;
+}
+
+#blogposts_list {
+	background-color: rgba(255, 255, 255, 1);
+	width: 70%;
+	min-height: 500px;
+	height: auto;
+	margin-left: 10%;
+	padding-left: 10%;
+}
+
+#blogposts_list table {
+	page-break-inside:auto
+    
+}
+
+#blogposts_list tr {
+	page-break-inside:avoid; page-break-after:auto }
 }
 
 a {

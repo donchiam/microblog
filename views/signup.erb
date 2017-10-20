@@ -15,10 +15,14 @@
 			<input id="password" type="password" name="password" placeholder="Password">
 		</div>
 		<div id="profile_image_upload">
-			<label>Upload a profile picture
+			<form action="/save_image" method="POST" enctype="multipart/form-data">
+				<input type="file" name="file">
+				<input type="submit" value="Upload image">
+			</form>
+			<!--<label>Upload a profile picture
 				<br>
 			<input id="image_button" type="file" name="image" accept=".jpg, .jpeg, .png">
-			</label>
+			</label>-->
 		</div>
 		<div id="signup_box">
 			<input id="signup_button" type="submit" value="Sign Up"/>

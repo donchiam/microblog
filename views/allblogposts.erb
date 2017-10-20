@@ -1,0 +1,30 @@
+<div id="allblogposts_page">
+	<p></p>
+	<div id="blogposts_list">
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Posted On</th>
+				<th>Created By</th>
+				<th>Comments</th>
+			</tr>
+			<% @blogposts.each do |blogpost| %>
+			<tr>
+				<td>
+					<a href="/blogpost/<%= blogpost.id %>"><%= blogpost.title%></a>
+				</td>
+				<td>
+					<%= blogpost.created_at.to_date %></a>
+				</td>
+				<td align="center">
+					<a href="/profile/<%= blogpost.user.id %>"><%= blogpost.user.username %></a>
+				</td>
+				<td align="center">
+					<%= blogpost.comments.count %></a>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+	
+</div>

@@ -1,15 +1,17 @@
 <div id="writeblog_page">
-<h1>Compose new blog post</h1>
-<form id="writeblog" method="POST" action="/blogpost">
-	<div id="blog_header">
-		<input id="blog_title" type="text" name="title" maxlength="150" placeholder="Write your title here">
-	<div id="blog_box">
-		<div id="blog_fill">
-			<textarea id="blog_body" name="body" form="writeblog" maxlength="150" placeholder="Write your blog post here (up to 150 characters)"></textarea>
+<div id="writeblog_box">
+	<h1>Compose new blog post</h1>
+	<form id="writeblog" method="POST" action="/blogpost">
+		<div id="blog_header">
+			<input id="blog_title" type="text" name="title" maxlength="150" 	placeholder="Write your title here">
+		<div id="blog_box">
+			<div id="blog_fill">
+				<textarea id="blog_body" name="body" form="writeblog" maxlength="150" placeholder="Write your blog post here (up to 150 characters)"></textarea>
+			</div>
+			<div id="post_box">
+				<input id="post_button" type="submit" value="Submit your post"/>
+			</div>
 		</div>
-		<div id="post_box">
-			<input id="post_button" type="submit" value="Submit your posting"/>
-		</div>
-	</div>
-</form>
+	</form>
+</div>
 </div>

@@ -1,5 +1,5 @@
 <div id="allprofiles_page">
-	
+	<p></p>
 	<div id="profiles_list">
 		<table>
 			<tr>
@@ -28,7 +28,7 @@
 					<a href="/profile/<%= user.id %>"><%= user.blog_posts.count %></a>
 				</td>
 				<td>
-					<a href="/profile/<%= user.id %>"><%= user.comments.count %></a>
+					<%= user.comments.count %></a>
 				</td>
 			</tr>
 			<% end %>
