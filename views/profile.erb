@@ -1,22 +1,27 @@
 <div id="profile">
 <div id="profile_image">
-    <img src="<%= @user.image %>"/>
-    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+    <% if @user.photo.url == nil %>
+        <img src="https://www.zimphysio.org.zw/wp-content/uploads/2017/01/default-avatar.jpg" />
+    <% end %>
+    <% if @user.photo.url != nil %>
+        <img src="<%= @user.photo.url %>" />
+    <% end %>
+    <p><i class="fa fa-facebook-official" aria-hidden="true"></i>
     <i class="fa fa-instagram" aria-hidden="true"></i>
     <i class="fa fa-twitter" aria-hidden="true"></i>
-</div>
+    <i class="fa fa-envelope" aria-hidden="true"></i></p>
 
-<div id="profile_page">
-    <% if session[:user_id] %>
-        <% if @user.id == session[:user_id] %>
-            <form method="post" action="/updateImage">
-	           <input type="file" name="image" accept=".jpg, .jpeg, .png">
-	           <input type="submit" value="Update"/>
-            </form>
-        <% end %>
+    <% if @current_user && @current_user.photo && @user.id == session[:user_id] %>
+        <h2>Update profile photo</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="photo" class="form-control" />
+            <input class="submit" type="submit" />
+        </form>
     <% end %>
+</div> <!-- end of profile_image -->
 
-    <div id="profile_info">
+<div id="profile_info">
+    <div class="username">
         <div id="profile_username" class="usersInfo">
             <h2>Username:</h2><p><%= @user.username %></p>           
         </div>
@@ -24,12 +29,15 @@
     <% if session[:user_id] %>
         <% if @user.id == session[:user_id] %>
             <form method="post" action="/updateUsername">
+                <p class="edit">Edit Username</p>
 	           <input type="text" name="username" placeholder="Username">
-	           <input type="submit" value="Update"/>
+	           <input class="submit" type="submit" value="Update"/>
             </form>
         <% end %>
     <% end %>
-
+</div>
+<hr></hr>
+        <div class="name">
         <div id="profile_fullname" class="usersInfo">
             <h2>Name:</h2><p><%= @user.fullname %></p>
         </div>
@@ -37,55 +45,61 @@
     <% if session[:user_id] %>
         <% if @user.id == session[:user_id] %>
             <form method="post" action="/updateFullname">
+                <p class="edit">Edit Name</p>
 	           <input type="text" name="fullname" placeholder="Full name">
-	           <input type="submit" value="Update"/>
+	           <input class="submit" type="submit" value="Update"/>
             </form>
         <% end %>
     <% end %>
-
+</div>
+<hr></hr>
+        <div class="email">
         <div id="profile_email" class="usersInfo">
             <h2>Email:</h2><p><%= @user.email %></p>
         </div>
-    </div>
 
     <% if session[:user_id] %>
         <% if @user.id == session[:user_id] %>
             <form method="post" action="/updateEmail">
+                <p class="edit">Change Email Address</p>
 	           <input type="text" name="email" placeholder="Email">
-	           <input type="submit" value="Update"/>
+	           <input class="submit" type="submit" value="Update"/>
             </form>    
         <% end %>
     <% end %>
-
-</div> <!-- end of profile_page -->
-<div id="blogs">
-    <div id="profile_blogs" class="usersInfo">
-        <h2>My Blog Posts:</h2>
-        <ul>
-            <% @user.blog_posts.each do |blog_post| %>
-                <li><a href="/blogpost/<%= blog_post.id %>"><%= blog_post.title %></a></li>
-            <% end %>    
-        </ul>
-    </div>
-
+</div>
+<hr></hr>
+    <div class="delete">
     <% if session[:user_id] %>
+        <% if @user.id == session[:user_id] %>
+            <form method="post" action="/updatePassword">
+                <p class="edit">Change Password</p>
+               <input type="password" name="password" placeholder="Password">
+               <input id="pass" class="submit" type="submit" value="Update"/>
+            </form>
+        <% end %>
+    <% end %>
+
+        <% if session[:user_id] %>
         <% if @user.id == session[:user_id] %>
             <% p @user.id %>
             <% p session[:user_id] %>
             <form method="post" action="/deleteaccount">
                 <input type="hidden" name="delete" value="DELETE">
-                <input type="submit" value="delete">
+                <input id="delete" type="submit" value="Delete Account">
             </form>
         <% end %>
     <% end %>
+</div>
+</div>
 
-    <% if session[:user_id] %>
-        <% if @user.id == session[:user_id] %>
-            <form method="post" action="/updatePassword">
-	           <input type="password" name="password" placeholder="Password">
-	           <input type="submit" value="Update"/>
-            </form>
-        <% end %>
-    <% end %>
+    <div id="profile_blog" class="usersInfo">
+        <ul>
+            <li><h2>My Blog Posts:</h2></li>
+            <% @user.blog_posts.each do |blog_post| %>
+                <li><a href="/blogpost/<%= blog_post.id %>"><%= blog_post.title %></a></li>
+            <% end %>    
+        </ul>
+    </div>
 </div>
 </div>

@@ -1,11 +1,17 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 require 'sqlite3'
 require './models'
 
 enable :sessions
 set :database, {adapter: 'sqlite3', database: 'microblog.sqlite3'}
+
+CarrierWave.configure do |config|
+  config.root = File.dirname(__FILE__) + "/public"
+end
 
 before do
   current_user
@@ -33,13 +39,12 @@ get '/signup' do
     erb :signup
 end
 
-post '/signup' do
+post '/signup' do  
   user = User.new(
     fullname: params[:fullname],
     username: params[:username],
     email: params[:email],
-    password: params[:password],
-    image: params[:image]
+    password: params[:password]
   )
   if user.save
     flash[:message] = "Your account was successfully created, click log in to login"
@@ -76,14 +81,6 @@ post '/deleteaccount' do
   session[:user_id] = nil
   current.destroy
   redirect '/'
-end
-
-post '/updateImage' do
-  current = User.find(session[:user_id])
-  current.update(
-      image: params[:image]
-    )
-  redirect back
 end
 
 post '/updateUsername' do
@@ -164,6 +161,16 @@ get '/logout' do
   session[:user_id] = nil
   flash[:message] = "You're logged out"
   redirect '/'
+end
+
+post '/profile/:id' do
+  @current_user.photo = params[:photo]
+  if @current_user.save
+    flash[:message] = "Cool, nice photo!"
+  else
+    flash[:message] = "Sorry, your photo could not be saved at this time"
+  end
+  redirect back
 end
 
 def current_user
