@@ -13,7 +13,14 @@
 			<% @users.each do |user| %>
 			<tr>
 				<td>
-					<a href="/profile/<%= user.id %>"><img src="<%= user.image %>"/></a>
+					<a href="/profile/<%= user.id %>">
+						<% if 	user.photo.url == nil %>
+        					<img src="https://www.zimphysio.org.zw/wp-content/uploads/2017/01/default-avatar.jpg" />
+    					<% end %>
+    					<% if user.photo.url != nil %>
+        					<img src="<%= user.photo.url %>" />
+    					<% end %>
+					</a>
 				</td>
 				<td>
 					<a href="/profile/<%= user.id %>"><%= user.username %></a>

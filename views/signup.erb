@@ -1,6 +1,6 @@
 <div id="signup_page">
 <h1>Join .. today</h1>
-<form id="signup" method="POST" action="/signup">
+<form id="signup" method="post" action="/signup">
 	<div id="signup_info">
 		<div id="ask_fullname">
 			<input id="fullname" type="text" name="fullname" placeholder="Full name">
@@ -13,16 +13,6 @@
 		</div>
 		<div id="ask_password">
 			<input id="password" type="password" name="password" placeholder="Password">
-		</div>
-		<div id="profile_image_upload">
-			<form action="/save_image" method="POST" enctype="multipart/form-data">
-				<input type="file" name="file">
-				<input type="submit" value="Upload image">
-			</form>
-			<!--<label>Upload a profile picture
-				<br>
-			<input id="image_button" type="file" name="image" accept=".jpg, .jpeg, .png">
-			</label>-->
 		</div>
 		<div id="signup_box">
 			<input id="signup_button" type="submit" value="Sign Up"/>
