@@ -23,9 +23,11 @@
         <li><a class="nav" href="/allprofiles">profiles</a></li>
         <li><a class="nav" href="/allblogposts">posts</a></li>
         <% if @current_user %>
-          <li><em><a class="user" href="/profile/<%= current_user.id %>">My Account</a></em></li>
-          <li><em><a class="user" href="/writeblogpost">New Post</a></em></li>
-          <li><em><a class="user" href="/logout">Logout</a></em></li>
+        <div class="loggedIn">
+          <p><li><em><a class="user" href="/profile/<%= current_user.id %>">My Account</a></em></li></p>
+          <p><li><em><a class="user" href="/writeblogpost">New Post</a></em></li></p>
+          <p><li><em><a class="user" href="/logout">Logout</a></em></li></p>
+        </div>
         <% end %>
       </ul>
     </nav>

@@ -19,7 +19,7 @@ end
 
 get '/' do
   @class = "home"
-  @recent = BlogPost.order(:created_at)
+  @recent = BlogPost.all.order(id: :desc)
   erb :home
 end
 
