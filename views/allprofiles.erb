@@ -1,5 +1,4 @@
 <div id="allprofiles_page">
-	<p></p>
 	<div id="profiles_list">
 		<table>
 			<tr>
@@ -8,7 +7,6 @@
 				<th>Name</th>
 				<th>Email</th>
 				<th>Blog Posts</th>
-				<th>Comments</th>
 			</tr>
 			<% @users.each do |user| %>
 			<tr>
@@ -33,9 +31,6 @@
 				</td>		
 				<td>
 					<a href="/profile/<%= user.id %>"><%= user.blog_posts.count %></a>
-				</td>
-				<td>
-					<%= user.comments.count %></a>
 				</td>
 			</tr>
 			<% end %>
